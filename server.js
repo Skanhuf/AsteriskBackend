@@ -22,7 +22,7 @@ const client = new Client({
 
 client.connect().then(() => {
     app.get('/getData', async function (req, res, next) {
-        const data = await client.query('SELECT cdate,ctime,status,srcnum,dstnum,city,operator,cduration,qwaiting,messageid,recordingfile  FROM cdr')
+        const data = await client.query('SELECT cdate,ctime,status,srcnum,dstnum,city,operator,cduration,qwaiting,messageid,recordingfile  FROM cdr fetch first 10 rows only')
         res.json(data)
 
     })
